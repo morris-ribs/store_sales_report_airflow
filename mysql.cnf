@@ -1,0 +1,7 @@
+!include_dir /etc/mysql/conf.d/
+!include_dir /etc/mysql/mysql.conf.d/
+[mysqld]
+pid-file        = /var/run/mysqld/mysqld.pid
+socket          = /var/run/mysqld/mysqld.sock
+data-dir        = /var/rlib/mysql
+secure-file-priv=""
