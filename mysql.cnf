@@ -3,5 +3,5 @@
 [mysqld]
 pid-file        = /var/run/mysqld/mysqld.pid
 socket          = /var/run/mysqld/mysqld.sock
-data-dir        = /var/rlib/mysql
+datadir         = /var/lib/mysql
 secure-file-priv=""
