@@ -1,14 +1,14 @@
 from airflow import DAG
 from datetime import datetime, timedelta
 from airflow.operators.python_operator import PythonOperator
-from airflow.hooks.postgres_hook import PostgresHook # to create a hook with external POSTGRES DB
+from airflow.hooks.postgres_hook import PostgresHook # to create a hook to an external POSTEGRES DB
 from psycopg2.extras import execute_values
 
 default_args = {
     'owner': 'Airflow',
     "retries": 1,
     "retry_delay": timedelta(minutes=5),
-    'start_date': datetime(2020, 6, 8),
+    'start_date': datetime(2019, 11, 26),
 }
 
 dag = DAG('hooks_demo', default_args=default_args, schedule_interval='@daily')
@@ -25,7 +25,7 @@ def transfer_function(ds, **kwargs):
     destination_hook = PostgresHook(postgres_conn_id='postgres_conn', schema='airflow')
     destination_conn = destination_hook.get_conn()
 
-    source_cursor = source_conn.cursor() # cursor helps maintaining a connection to POSTGRES while querying DB
+    source_cursor = source_conn.cursor()
     destination_cursor = destination_conn.cursor()
 
     source_cursor.execute(query)

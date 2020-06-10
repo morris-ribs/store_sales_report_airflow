@@ -12,7 +12,7 @@ yesterday_date = datetime.strftime(datetime.now() - timedelta(1), '%Y-%m-%d')
 
 default_args = {
     "owner": "Airflow",
-    "start_date": datetime(2020, 6, 7),
+    "start_date": datetime(2020, 6, 8),
     "retries": 1,
     "retry_delay": timedelta(seconds=5), # every failed task will be retried within 5 seconds
 }

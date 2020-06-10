@@ -1,0 +1,1 @@
+SELECT STUDENT_ID, STUDENT_NAME FROM students INTO OUTFILE '/store_files_mysql/students_loaded.csv' FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';

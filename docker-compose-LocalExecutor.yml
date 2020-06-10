@@ -23,19 +23,20 @@ services:
             - mysql
         environment:
             - INSTALL_MYSQL=y
-            - LOAD_EX=n
+            - LOAD_EX=y
             - EXECUTOR=Local
-            - AIRFLOW__SMTP__SMTP_HOST=smtp.gmail.com
-            - AIRFLOW__SMTP__SMTP_USER=example@gmail.com
-            - AIRFLOW__SMTP__SMTP_PASSWORD=blablablabla
-            - AIRFLOW__SMTP__SMTP_PORT=587
-            - AIRFLOW__SMTP__SMTP_MAIL_FROM=Airflow
+            - AIRFLOW__CORE__FERNET_KEY=hhifqMYFTzq8UnqJRG4SCpPSSVi_ad_9RficUbDRIy4=
+              #            - AIRFLOW__SMTP__SMTP_HOST=example.example.com
+              #            - AIRFLOW__SMTP__SMTP_USER=example@example.com
+              #- AIRFLOW__SMTP__SMTP_PASSWORD=dshfhdshfdsi
+              #- AIRFLOW__SMTP__SMTP_PORT=587
+              #            - AIRFLOW__SMTP__SMTP_MAIL_FROM=example@example.com
         volumes:
             - ./dags:/usr/local/airflow/dags
             - ./store_files:/usr/local/airflow/store_files_airflow
             - ./sql_files:/usr/local/airflow/sql_files
             # Uncomment to include custom plugins
-            # - ./plugins:/usr/local/airflow/plugins
+            - ./plugins:/usr/local/airflow/plugins
         ports:
             - "8080:8080"
         command: webserver
